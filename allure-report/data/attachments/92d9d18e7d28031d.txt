@@ -1,0 +1,8 @@
+[2026-05-13T17:19:51.292Z] [INFO] [LoginPage] Filling username field with value: invalid
+[2026-05-13T17:19:51.322Z] [INFO] [LoginPage] Filling password field
+[2026-05-13T17:19:51.337Z] [INFO] [LoginPage] Clicking login button
+[2026-05-13T17:19:51.381Z] [INFO] [LoginPage] Login action completed
+[2026-05-13T17:19:51.381Z] [INFO] [LoginPage] Checking if error message is displayed
+[2026-05-13T17:19:51.392Z] [INFO] [LoginPage] Error visible: true
+[2026-05-13T17:19:51.393Z] [INFO] [LoginPage] Retrieving error message
+[2026-05-13T17:19:51.404Z] [INFO] [LoginPage] Error message: Epic sadface: Username and password do not match any user in this service

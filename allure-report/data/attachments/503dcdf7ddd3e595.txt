@@ -1,0 +1,4 @@
+[2026-05-13T17:19:49.051Z] [INFO] [LoginPage] Filling username field with value: standard_user
+[2026-05-13T17:19:49.095Z] [INFO] [LoginPage] Filling password field
+[2026-05-13T17:19:49.109Z] [INFO] [LoginPage] Clicking login button
+[2026-05-13T17:19:49.212Z] [INFO] [LoginPage] Login action completed

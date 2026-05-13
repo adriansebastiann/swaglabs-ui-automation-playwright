@@ -1,0 +1,8 @@
+[2026-05-13T17:19:53.315Z] [INFO] [LoginPage] Filling username field with value: locked_out_user
+[2026-05-13T17:19:53.354Z] [INFO] [LoginPage] Filling password field
+[2026-05-13T17:19:53.366Z] [INFO] [LoginPage] Clicking login button
+[2026-05-13T17:19:53.420Z] [INFO] [LoginPage] Login action completed
+[2026-05-13T17:19:53.420Z] [INFO] [LoginPage] Checking if error message is displayed
+[2026-05-13T17:19:53.432Z] [INFO] [LoginPage] Error visible: true
+[2026-05-13T17:19:53.432Z] [INFO] [LoginPage] Retrieving error message
+[2026-05-13T17:19:53.448Z] [INFO] [LoginPage] Error message: Epic sadface: Sorry, this user has been locked out.

@@ -8,31 +8,35 @@ on:
 
 jobs:
   test:
-    timeout-minutes: 10
+    timeout-minutes: 20
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         browser: [chromium, firefox, webkit]
 
-    permissions:
-      packages: read
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com
 
       - name: Install dependencies
-        run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: |
+          npx playwright install --with-deps
+          npx playwright --version
+          npx playwright show-config || true
+
+      - name: Debug project structure
+        run: |
+          ls -R
 
       - name: Run Playwright tests
         run: npx playwright test --reporter=allure-playwright --project=${{ matrix.browser }}
@@ -43,8 +47,9 @@ jobs:
           LOCKED_USER: ${{ secrets.LOCKED_USER }}
           LOCKED_PASS: ${{ secrets.LOCKED_PASS }}
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Allure results
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: allure-results-${{ matrix.browser }}
           path: allure-results

@@ -1,40 +1,29 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  timeout: 30000,
-  retries: 0,
-
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: 'html',
   use: {
-    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    trace: 'on-first-retry'
+    baseURL: process.env.BASE_URL,
+    trace: 'on-first-retry',
   },
-
-  reporter: [
-    ['html'],
-    ['allure-playwright', { outputFolder: 'allure-results' }]
-  ],
 
   projects: [
     {
       name: 'chromium',
-      use: {
-        browserName: 'chromium'
-      }
+      use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'firefox',
-      use: {
-        browserName: 'firefox'
-      }
+      use: { ...devices['Desktop Firefox'] },
     },
     {
       name: 'webkit',
-      use: {
-        browserName: 'webkit'
-      }
-    }
-  ]
+      use: { ...devices['Desktop Safari'] },
+    },
+  ],
 });

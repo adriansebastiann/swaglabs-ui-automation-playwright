@@ -45,7 +45,7 @@ jobs:
           ls -R
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=allure-playwright --project=${{ matrix.browser }}
+        run: npx playwright test --reporter=allure-playwright
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           STANDARD_USER: ${{ secrets.STANDARD_USER }}

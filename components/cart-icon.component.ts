@@ -1,5 +1,5 @@
 import { Locator } from '@playwright/test';
-import { BaseComponent } from 'playwright-test-core';
+import { BaseComponent } from '@adriansebastiann/playwright-test-core';
 
 export class CartIconComponent extends BaseComponent {
   private itemCountLocator: Locator;

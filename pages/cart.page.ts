@@ -1,6 +1,5 @@
 import { Page } from '@playwright/test';
-import { BasePage } from 'playwright-test-core';
-
+import { BasePage } from '@adriansebastiann/playwright-test-core';
 export class CartPage extends BasePage {
   private readonly cartItems = '.cart_item';
   private readonly continueShoppingButton = '[data-test="continue-shopping"]';

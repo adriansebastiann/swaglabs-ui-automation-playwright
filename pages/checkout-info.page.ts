@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BasePage } from 'playwright-test-core';
+import { BasePage } from '@adriansebastiann/playwright-test-core';
 
 export class CheckoutInfoPage extends BasePage {
   private readonly firstNameInput = '#first-name';

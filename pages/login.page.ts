@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BasePage, Logger } from 'playwright-test-core';
+import { BasePage, Logger } from '@adriansebastiann/playwright-test-core';
 
 export class LoginPage extends BasePage {
   private readonly usernameSelector = '#user-name';

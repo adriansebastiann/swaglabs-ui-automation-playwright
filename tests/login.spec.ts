@@ -21,13 +21,13 @@ test.describe('Login', () => {
     expect(errorText).toContain('Username and password do not match');
   });
 
-  for (const user of VALID_USERS) {
-    test(`should show error for ${user.username} @regression`, async ({ loginPage }) => {
-      await loginPage.navigate();
-      await loginPage.login(user.username, user.password);
-      expect(await loginPage.isErrorDisplayed()).toBeTruthy();
-    });
-  }
+  test('should show error for locked out user @regression', async ({ loginPage }) => {
+    await loginPage.navigate();
+    await loginPage.login(process.env.LOCKED_USER!, process.env.LOCKED_PASS!);
+    expect(await loginPage.isErrorDisplayed()).toBeTruthy();
+    const errorText = await loginPage.getErrorMessage();
+    expect(errorText).toContain('locked out');
+  });
 
   test('should login via fixture @smoke', async ({ authenticatedPage }) => {
     expect(await authenticatedPage.isTitleDisplayed()).toBeTruthy();

@@ -16,53 +16,80 @@ This project automates **login, product listing, cart, and checkout** flows usin
 
 ## Project Structure
 
-├── .github/workflows/ci.yml # CI pipeline
-├── fixtures/
-│ └── swaglabs-fixtures.ts # Custom fixtures extending core fixtures
-├── pages/ # Page Objects (Login, Products, Cart, Checkout…)
-├── components/ # Reusable components (CartIcon)
-├── tests/ # Playwright spec files
-├── features/ # Cucumber features (optional BDD)
-├── step-definitions/ # Step definitions for BDD
-├── cucumber.js # Cucumber runner config
-├── playwright.config.ts # Playwright configuration (browsers, reporters, workers)
-├── .npmrc # Auth for GitHub Packages
-├── .env.example # Environment variables template
+.
+├── .github
+│   └── workflows
+│       └── ci.yml
+├── fixtures
+│   └── swaglabs-fixtures.ts
+├── pages
+│   ├── login.page.ts
+│   ├── products.page.ts
+│   ├── cart.page.ts
+│   ├── checkout-info.page.ts
+│   ├── checkout-overview.page.ts
+│   └── checkout-complete.page.ts
+├── components
+│   └── cart-icon.component.ts
+├── tests
+│   ├── login.spec.ts
+│   ├── products.spec.ts
+│   ├── cart.spec.ts
+│   └── checkout.spec.ts
+├── features
+│   └── login.feature
+├── step-definitions
+│   └── login.steps.ts
+├── cucumber.js
+├── playwright.config.ts
+├── .npmrc
+├── .env.example
 └── package.json
+
+fixtures/ – custom test fixtures
+pages/ – Page Objects
+components/ – reusable UI components
+tests/ – Playwright spec files
+features/ – Cucumber feature files (BDD)
+step-definitions/ – Cucumber step definitions
+cucumber.js – Cucumber runner config
+playwright.config.ts – Playwright configuration
+.npmrc – GitHub Packages auth
+.env.example – environment variables template
 
 ## Setup
 
-# 1. Clone the repo
+### 1. Clone the repo
 git clone https://github.com/adriansebastiann/swaglabs-ui-automation-playwright.git
 cd swaglabs-ui-automation-playwright
 
-# 2. Authenticate to GitHub Packages (one-time)
+### 2. Authenticate to GitHub Packages (one-time)
 npm login --registry=https://npm.pkg.github.com --scope=@adriansebastiann
 # (use your GitHub username + personal access token with read:packages)
 
-# 3. Install dependencies
+### 3. Install dependencies
 npm install
 
-# 4. Set environment variables
+### 4. Set environment variables
 cp .env.example .env
 # Edit .env with your SauceDemo credentials (default ones are public)
 
-# 5. Install Playwright browsers
+### 5. Install Playwright browsers
 npx playwright install
 
 ## Running Tests
 
-# All browsers
+### All browsers
 npm test
 
-# Specific tags
+### Specific tags
 npm run test:smoke          # @smoke
 npx playwright test --grep @regression
 
-# With Allure reporting
+### With Allure reporting
 npm run test:allure
 npm run allure:generate
 npm run allure:open
 
-# BDD scenarios (Cucumber)
+### BDD scenarios (Cucumber)
 npm run test:bdd

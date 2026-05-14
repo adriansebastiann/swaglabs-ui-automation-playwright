@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "playwright test",
+    "test:bdd": "cucumber-js",
     "test:smoke": "playwright test --grep @smoke",
     "test:ui": "playwright test --ui",
     "test:allure": "playwright test --reporter=allure-playwright",
@@ -10,13 +11,16 @@
     "allure:open": "npx allure open allure-report"
   },
   "devDependencies": {
+    "@adriansebastiann/playwright-test-core": "^1.0.0",
+    "@cucumber/cucumber": "^12.8.3",
+    "@cucumber/pretty-formatter": "^3.3.1",
+    "@faker-js/faker": "^10.4.0",
     "@playwright/test": "^1.60.0",
     "@types/node": "^20.12.7",
-    "typescript": "^5.4.5",
-    "@adriansebastiann/playwright-test-core": "^1.0.0",
-    "allure-playwright": "^3.8.0",
     "allure-commandline": "^2.41.0",
-    "@faker-js/faker": "^10.4.0"
+    "allure-playwright": "^3.8.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "dotenv": "^17.4.2"

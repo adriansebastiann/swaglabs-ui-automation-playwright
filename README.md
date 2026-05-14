@@ -16,6 +16,7 @@ This project automates **login, product listing, cart, and checkout** flows usin
 
 ## Project Structure
 
+```text
 .
 ├── .github
 │   └── workflows
@@ -56,6 +57,7 @@ cucumber.js – Cucumber runner config
 playwright.config.ts – Playwright configuration
 .npmrc – GitHub Packages auth
 .env.example – environment variables template
+```
 
 ## Setup
 
@@ -65,14 +67,14 @@ cd swaglabs-ui-automation-playwright
 
 ### 2. Authenticate to GitHub Packages (one-time)
 npm login --registry=https://npm.pkg.github.com --scope=@adriansebastiann
-# (use your GitHub username + personal access token with read:packages)
+(use your GitHub username + personal access token with read:packages)
 
 ### 3. Install dependencies
 npm install
 
 ### 4. Set environment variables
 cp .env.example .env
-# Edit .env with your SauceDemo credentials (default ones are public)
+Edit .env with your SauceDemo credentials (default ones are public)
 
 ### 5. Install Playwright browsers
 npx playwright install

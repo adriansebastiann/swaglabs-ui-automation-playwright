@@ -89,9 +89,10 @@ npm run test:smoke          # @smoke
 npx playwright test --grep @regression
 
 ### With Allure reporting
+```
 npm run test:allure
 npm run allure:generate
 npm run allure:open
-
+```
 ### BDD scenarios (Cucumber)
 npm run test:bdd
